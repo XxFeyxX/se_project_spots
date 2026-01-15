@@ -1,0 +1,117 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  position: relative;
+  margin: 0 auto;
+}
+
+.profile__avatar {
+  border-radius: 2px;
+  margin: 0 20px 0 0;
+  width: 190px;
+  height: 190px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__description {
+  margin: 12px 0 0;
+  opacity: 70%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.profile__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__edit-btn {
+  display: flex;
+  margin-top: auto;
+  gap: 8px;
+  background-color: #fcf5e5;
+  border: none;
+  color: #212121;
+  padding-bottom: 0;
+  opacity: 70%;
+}
+
+.profile__add-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background-color: #212121;
+  color: #fcf5e5;
+  gap: 2px;
+  right: 0;
+  bottom: 20px;
+  position: absolute;
+  padding: 18px 32px 18px 32px;
+  border-radius: 8px;
+}
+
+.profile__pencil-icon {
+  height: 18px;
+  width: 18px;
+  margin: 0;
+}
+
+.profile__add-btn:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+.profile__edit-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 20px 0 0;
+  }
+  .profile__avatar {
+    margin-right: 0;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 12px;
+  }
+  .profile__edit-btn {
+    justify-content: center;
+    margin-top: 32px;
+    gap: 8px;
+  }
+  .profile__add-btn {
+    margin: 20px 0;
+    position: static;
+    width: 100%;
+  }
+  .profile__title {
+    font-size: 20px;
+    max-width: 288px;
+  }
+  .profile__description {
+    margin-top: 6px;
+    font-size: 16px;
+  }
+}
