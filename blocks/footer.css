@@ -2,3 +2,10 @@
   display: flex;
   justify-content: center;
 }
+
+.footer__copyright {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  color: #212121b2;
+}
