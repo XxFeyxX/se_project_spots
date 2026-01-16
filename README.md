@@ -74,4 +74,11 @@ Careful management of positioning (relative, absolute) to balance layout control
 
 This webpage is deployed to Github Pages
 
-Deployment link:
+[Deployment link](https://xxfeyxx.github.io/se_project_spots/index.html)
+
+## Project Pitch Video
+
+Check out ## Project Pitch Video
+
+Check out [this video](https://drive.google.com/file/d/1jSQkd5cyvFJkMJjpsDribVfNzKlHIQBn/view?usp=drive_link), where I describe my
+project and some challenges I faced while building it.
