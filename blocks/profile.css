@@ -76,6 +76,7 @@
   background-color: #212121;
   color: #fcf5e5;
   gap: 8px;
+  border: none;
   margin-left: auto;
   align-self: flex-end;
 }
