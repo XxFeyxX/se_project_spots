@@ -11,6 +11,7 @@
   margin: 0 20px 0 0;
   width: 190px;
   height: 190px;
+  object-fit: cover;
 }
 
 .profile__column {
@@ -20,6 +21,7 @@
 
 .profile__description {
   margin: 12px 0 0;
+  max-width: 420px;
   font-size: 16px;
   font-weight: 500;
   color: #212121b2;
@@ -45,6 +47,7 @@
 
 .profile__edit-btn {
   display: flex;
+  padding: 0;
   margin-top: auto;
   gap: 8px;
   background-color: transparent;
@@ -69,13 +72,10 @@
   border-radius: 8px;
   font: 500 16px/1;
   background: #212121;
-  text: #fcf5e5;
   margin: 0;
   background-color: #212121;
   color: #fcf5e5;
-  gap: 2px;
-  top: 138px;
-  bottom: 20px;
+  gap: 8px;
   margin-left: auto;
   align-self: flex-end;
 }
