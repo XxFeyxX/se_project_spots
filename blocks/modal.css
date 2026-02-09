@@ -3,6 +3,10 @@
   font-weight: 500;
   font-style: medium;
   visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -13,11 +17,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: poppins;
+
+  font-family: Poppins, Arial, sans-serif;
 }
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s;
 }
 
 .modal__container {
@@ -27,6 +36,16 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.modal_is-opened .modal__container {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .modal__form {
