@@ -22,6 +22,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .card__like-btn:hover {
@@ -46,17 +47,12 @@
   line-height: 1.2;
   font-weight: 500;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   max-width: 353px;
 }
 
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
-  }
-  .card__like-btn {
-    padding: 0;
   }
   .card__title {
     font-size: 16px;
