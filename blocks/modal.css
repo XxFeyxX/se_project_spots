@@ -36,16 +36,6 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.modal_is-opened .modal__container {
-  transform: translateY(0);
-  opacity: 1;
 }
 
 .modal__form {
@@ -80,6 +70,9 @@
 
 .modal__title {
   margin: 0 0 32px;
+  padding: 0;
+  font-size: 32px;
+  line-height: 1;
 }
 
 .modal__input {
@@ -127,20 +120,19 @@
     width: 100%;
   }
   .modal__label {
-    margin: 0 0 24px;
     font-size: 16px;
   }
   .modal__title {
-    margin: 0 0 24px;
+    font-size: 20px;
   }
   .modal__input {
     font-size: 16px;
   }
-  .modalcontainer {
+  .modal__container {
     padding: 22px 12px 12px;
   }
   .modal__close-btn {
-    top: 22px;
+    top: 12px;
     right: 12px;
   }
 }
