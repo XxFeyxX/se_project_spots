@@ -124,6 +124,7 @@
   font-family: Poppins, Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
+  border-radius: 8px;
 }
 
 .modal__close-btn_type_preview {
@@ -171,7 +172,7 @@
     width: 100%;
   }
   .modal__label {
-    font-size: 16px;
+    margin: 0 0 12px;
   }
   .modal__title {
     font-size: 20px;
@@ -186,9 +187,6 @@
     top: 12px;
     right: 12px;
   }
-}
-
-@media screen and (max-width: 627px) {
   .modal__close-btn_type_preview {
     top: -48px;
     right: 0;

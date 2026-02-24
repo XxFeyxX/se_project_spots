@@ -69,13 +69,13 @@
 }
 
 .card__title {
+  font-size: 24px;
   margin: 0;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  font-size: 20px;
   line-height: 1.2;
   font-weight: 500;
   white-space: nowrap;
