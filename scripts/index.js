@@ -145,6 +145,8 @@ previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+editProfileForm.addEventListener("submit", handleProfileFormSubmit);
+
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach(function (item) {
