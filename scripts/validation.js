@@ -40,15 +40,14 @@ const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
 };
 
-function resetValidation(formElement, inputList) {
-  const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-  const buttonElement = formElement.querySelector(".modal__submit-btn");
+function resetValidation(formElement, inputList, config) {
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
   inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   });
 
-  disableButton(buttonElement);
+  disableButton(buttonElement, config);
 }
 
 function toggleButtonState(inputList, buttonElement, config) {
