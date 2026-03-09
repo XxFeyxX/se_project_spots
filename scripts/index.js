@@ -105,6 +105,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+  evt.target.reset();
   closeModal(editProfileModal);
 }
 
@@ -120,6 +121,10 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   evt.target.reset();
+  toggleButtonState(
+    [cardCaptionInput, cardImageUrlInput],
+    addCardFormElement.querySelector(".modal__submit-btn"),
+  );
   closeModal(newPostModal);
 }
 

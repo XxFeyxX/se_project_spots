@@ -32,6 +32,13 @@
   -webkit-box-orient: vertical;
 }
 
+.profile-description-input-error {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ff0000;
+  visibility: hidden;
+}
+
 .profile__title {
   margin: 0;
   font-weight: 500;
