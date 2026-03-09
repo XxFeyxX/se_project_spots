@@ -7,6 +7,8 @@ const settings = {
   errorClass: "modal__error_active",
 };
 
+export const config = settings;
+
 const showInputError = (formElement, inputElement, errorMsg, config) => {
   const errorMsgEl = formElement.querySelector(`#${inputElement.id}-error`);
   errorMsgEl.textContent = errorMsg;

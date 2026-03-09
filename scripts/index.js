@@ -1,3 +1,5 @@
+import { config } from "./validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -122,8 +124,8 @@ function handleAddCardSubmit(evt) {
 
   evt.target.reset();
   toggleButtonState(
-    [cardCaptionInput, cardImageUrlInput],
-    addCardFormElement.querySelector(".modal__submit-btn"),
+    [cardCaptionInput, cardImageUrlInput, config],
+    addCardFormElement.querySelector(config.submitButtonSelector),
   );
   closeModal(newPostModal);
 }
@@ -132,6 +134,11 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   openModal(editProfileModal);
+  resetValidation(
+    editProfileModal,
+    [editProfileNameInput, editProfileDescriptionInput],
+    config,
+  );
 });
 
 editProfileCloseButton.addEventListener("click", function () {
