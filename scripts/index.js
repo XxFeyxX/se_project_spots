@@ -73,6 +73,16 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closeModal(modal);
+    }
+  });
+});
+
 function getCardElement(data) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
