@@ -64,13 +64,25 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(
   ".modal__close-btn_type_preview",
 );
+const handleEsc = (e) => {
+  if (e.key === "Escape") {
+    closeModal(
+      config,
+      previewModal,
+      [cardCaptionInput, cardImageUrlInput],
+      addCardFormElement,
+    );
+  }
+};
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEsc);
 }
 
-function closeModal(modal) {
+function closeModal(modal, previewModal, inputList, formElement) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEsc);
 }
 
 const modals = document.querySelectorAll(".modal");
@@ -78,7 +90,7 @@ const modals = document.querySelectorAll(".modal");
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target === evt.currentTarget) {
-      closeModal(modal);
+      closeModal(modal, [], null, config);
     }
   });
 });
