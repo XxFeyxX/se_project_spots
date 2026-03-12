@@ -167,7 +167,8 @@ editProfileCloseButton.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-newPostBtn.addEventListener("click", function () {
+newPostBtn.addEventListener("click", () => {
+  resetValidation(addCardFormElement, config);
   openModal(newPostModal);
 });
 
