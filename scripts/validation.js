@@ -8,6 +8,19 @@ const settings = {
 };
 
 export const config = settings;
+export { resetValidation };
+export { toggleButtonState };
+export { checkInputValidity };
+export const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    setEventListeners(formElement, config);
+  });
+};
 
 const showInputError = (formElement, inputElement, errorMsg, config) => {
   const errorMsgEl = formElement.querySelector(`#${inputElement.id}-error`);
@@ -83,17 +96,6 @@ const setEventListeners = (formElement, config) => {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
-  });
-};
-
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement, config);
   });
 };
 

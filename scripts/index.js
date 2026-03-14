@@ -1,4 +1,9 @@
 import { config } from "./validation.js";
+import {
+  checkInputValidity,
+  resetValidation,
+  toggleButtonState,
+} from "./validation.js";
 
 const initialCards = [
   {
@@ -140,8 +145,9 @@ function handleAddCardSubmit(evt) {
 
   evt.target.reset();
   toggleButtonState(
-    [cardCaptionInput, cardImageUrlInput, config],
+    [cardCaptionInput, cardImageUrlInput],
     addCardFormElement.querySelector(config.submitButtonSelector),
+    config,
   );
   closeModal(newPostModal);
 }
@@ -150,7 +156,11 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   openModal(editProfileModal);
-  resetValidation(editProfileModal, config);
+  resetValidation(
+    editProfileModal,
+    [editProfileNameInput, editProfileDescriptionInput],
+    config,
+  );
 });
 
 editProfileCloseButton.addEventListener("click", function () {
@@ -158,8 +168,12 @@ editProfileCloseButton.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", () => {
-  resetValidation(addCardFormElement, config);
-  openModal(newPostModal);
+  openModal(newPostModal, cardCaptionInput, cardCaptionInput, config);
+  resetValidation(
+    addCardFormElement,
+    [cardCaptionInput, cardImageUrlInput],
+    config,
+  );
 });
 
 newPostCloseBtn.addEventListener("click", function () {
