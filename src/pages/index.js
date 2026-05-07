@@ -1,43 +1,52 @@
-import { config } from "./validation.js";
+import "./index.css";
+
+import logo from "../images/logo.svg";
+import avatar from "../images/Avatar.svg";
+import editIcon from "../images/edit-icon.svg";
+import plusIcon from "../images/plus-icon.svg";
+
+import picture1 from "../images/picture-1.svg";
+import picture2 from "../images/picture-2.svg";
+import picture3 from "../images/picture-3.svg";
+import picture4 from "../images/picture-4.svg";
+import picture5 from "../images/picture-5.svg";
+import picture6 from "../images/picture-6.svg";
+
 import {
+  enableValidation,
+  validationConfig,
   checkInputValidity,
   resetValidation,
   toggleButtonState,
-} from "./validation.js";
+} from "../scripts/validation.js";
 
 const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "./images/picture-1.svg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "./images/picture-2.svg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "./images/picture-3.svg",
-  },
+  { name: "Val Thorens", link: picture1 },
+  { name: "Restaurant terrace", link: picture2 },
+  { name: "An outdoor cafe", link: picture3 },
   {
     name: "A very long bridge, over the forest and through the trees",
-    link: "./images/picture-4.svg",
+    link: picture4,
   },
-  {
-    name: "Tunnel with morning light",
-    link: "./images/picture-5.svg",
-  },
-  {
-    name: "Mountain house",
-    link: "./images/picture-6.svg",
-  },
+  { name: "Tunnel with morning light", link: picture5 },
+  { name: "Mountain house", link: picture6 },
 ];
-
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseButton =
   editProfileModal.querySelector(".modal__close-btn");
+const headerLogo = document.querySelector(".header__logo");
+const profileAvatar = document.querySelector(".profile__avatar");
+const editProfileIcon = document.querySelector(".profile__pencil-icon");
+const newPostIcon = document.querySelector(".profile__plus-icon");
+
+headerLogo.src = logo;
+profileAvatar.src = avatar;
+editProfileIcon.src = editIcon;
+newPostIcon.src = plusIcon;
 
 const profileNameEl = document.querySelector(".profile__title");
+
 const profileDescriptionEl = document.querySelector(".profile__description");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
@@ -74,8 +83,8 @@ const handleEsc = (evt) => {
   }
 };
 
-function openModal(modal) {
-  modal.classList.add("modal_is-opened");
+function openModal(newPostModal) {
+  newPostModal.classList.add("modal_is-opened");
   document.addEventListener("keydown", handleEsc);
 }
 
@@ -146,8 +155,8 @@ function handleAddCardSubmit(evt) {
   evt.target.reset();
   toggleButtonState(
     [cardCaptionInput, cardImageUrlInput],
-    addCardFormElement.querySelector(config.submitButtonSelector),
-    config,
+    addCardFormElement.querySelector(validationConfig.submitButtonSelector),
+    validationConfig,
   );
   closeModal(newPostModal);
 }
@@ -159,7 +168,7 @@ editProfileBtn.addEventListener("click", function () {
   resetValidation(
     editProfileModal,
     [editProfileNameInput, editProfileDescriptionInput],
-    config,
+    validationConfig,
   );
 });
 
@@ -168,11 +177,11 @@ editProfileCloseButton.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", () => {
-  openModal(newPostModal, cardCaptionInput, cardCaptionInput, config);
+  openModal(newPostModal, cardCaptionInput, cardCaptionInput, validationConfig);
   resetValidation(
     addCardFormElement,
     [cardCaptionInput, cardImageUrlInput],
-    config,
+    validationConfig,
   );
 });
 
@@ -192,4 +201,4 @@ initialCards.forEach(function (item) {
   cardsList.append(getCardElement(item));
 });
 
-console.log(cardTemplate);
+enableValidation(validationConfig);
