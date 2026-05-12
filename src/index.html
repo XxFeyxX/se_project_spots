@@ -15,7 +15,15 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img alt="profile picture" class="profile__avatar" />
+          <div class="profile__avatar-container">
+            <img alt="profile picture" class="profile__avatar" />
+            <button
+              type="button"
+              class="profile__avatar-edit-btn"
+              aria-label="Edit avatar"
+            ></button>
+          </div>
+
           <div class="profile__column">
             <h1 class="profile__title">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -99,8 +107,7 @@
                 placeholder="Paste a link to your picture"
                 required
               />
-              <span id="card-image-input-error" class="modal__error"
-                >ERROR</span
+              <span id="card-image-input-error" class="modal__error"></span>
               ></label
             >
             <label for="card-caption-input" class="modal__label">
@@ -114,14 +121,56 @@
                 maxlength="30"
                 required
               />
-              <span id="card-caption-input-error" class="modal__error"
-                >ERROR</span
+              <span id="card-caption-input-error" class="modal__error"></span>
               >
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
+
+      <div class="modal" id="edit-avatar-modal">
+        <div class="modal__container">
+          <button
+            type="button"
+            class="modal__close-btn"
+            aria-label="Close modal"
+          ></button>
+          <h2 class="modal__title">Change Profile Picture</h2>
+
+          <form class="modal__form" id="edit-avatar-form" novalidate>
+            <label for="avatar-input" class="modal__label">
+              Avatar link
+              <input
+                id="avatar-input"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to your profile picture"
+                required
+              />
+              <span id="avatar-input-error" class="modal__error"></span>
+            </label>
+
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="delete-card-modal">
+        <div class="modal__container">
+          <button
+            type="button"
+            class="modal__close-btn"
+            aria-label="Close modal"
+          ></button>
+          <h2 class="modal__title">Are you sure?</h2>
+
+          <form class="modal__form" id="delete-card-form" novalidate>
+            <button type="submit" class="modal__submit-btn">Yes</button>
+          </form>
+        </div>
+      </div>
+
       <div class="modal modal_type_preview" id="preview-modal">
         <div class="modal__image-container">
           <button
