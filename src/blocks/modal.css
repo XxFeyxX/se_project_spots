@@ -159,6 +159,35 @@
   border: none;
 }
 
+.modal__submit-btn-dlt {
+  max-width: 156px;
+  width: 100%;
+  padding: 18px 0;
+  color: #fff;
+  background-color: #ff6565;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.modal__submit-btn-dlt:hover {
+  background-color: #ff3333;
+}
+
+.modal__cancel-btn {
+  max-width: 156px;
+  width: 100%;
+  padding: 18px 0;
+  color: #ffffff;
+  background-color: #212121;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  margin-top: 12px;
+}
+
 .modal__submit-btn_inactive {
   background-color: #212121;
   opacity: 0.2;
