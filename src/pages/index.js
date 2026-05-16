@@ -88,14 +88,42 @@ const previewModalCloseBtn = previewModal.querySelector(
   ".modal__close-btn_type_preview",
 );
 
-const handleEsc = (evt) => {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_is-opened");
+const editAvatarSubmitBtn = editAvatarForm.querySelector(".modal__submit-btn");
 
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
+editAvatarSubmitBtn.dataset.originalText = editAvatarSubmitBtn.textContent;
+
+editAvatarBtn.addEventListener("click", () => {
+  avatarInput.value = "";
+
+  openModal(editAvatarModal);
+
+  resetValidation(editAvatarForm, [avatarInput], validationConfig);
+});
+
+const deleteCancelBtn = deleteCardForm.querySelector(".modal__cancel-btn");
+
+deleteCancelBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+});
+
+const handleEditAvatarFormSubmit = (evt) => {
+  evt.preventDefault();
+
+  renderLoading(true, editAvatarSubmitBtn);
+
+  api
+    .editUserAvatar({
+      avatar: avatarInput.value,
+    })
+    .then((userData) => {
+      profileAvatar.src = userData.avatar;
+
+      closeModal(editAvatarModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      renderLoading(false, editAvatarSubmitBtn);
+    });
 };
 
 const editProfileSubmitBtn =
@@ -106,6 +134,16 @@ const deleteCardSubmitBtn = deleteCardForm.querySelector(".modal__submit-btn");
 editProfileSubmitBtn.dataset.originalText = editProfileSubmitBtn.textContent;
 addCardSubmitBtn.dataset.originalText = addCardSubmitBtn.textContent;
 deleteCardSubmitBtn.dataset.originalText = deleteCardSubmitBtn.textContent;
+
+function handleEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -182,21 +220,6 @@ function getCardElement(data) {
     selectedCardElement = cardElement;
 
     openModal(deleteCardModal);
-  });
-
-  deleteCardForm.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-
-    api
-      .deleteCard(selectedCardId)
-      .then(() => {
-        cardElement.remove();
-        closeModal(deleteCardModal);
-
-        selectedCardId = null;
-        selectedCardElement = null;
-      })
-      .catch(console.error);
   });
 
   return cardElement;
