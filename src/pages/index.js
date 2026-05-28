@@ -70,6 +70,12 @@ const deleteCardSubmitBtn =
 const editProfileSubmitBtn =
   editProfileForm.querySelector(".modal__submit-btn");
 
+  const submitButtons = document.querySelectorAll(".modal__submit-btn");
+
+submitButtons.forEach((btn) => {
+  btn.dataset.originalText = btn.textContent;
+});
+
 
 document.querySelector(".header__logo").src = logo;
 profileAvatar.src = avatar;
