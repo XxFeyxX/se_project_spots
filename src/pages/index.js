@@ -64,6 +64,12 @@ const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn_type_preview");
 
+const addCardSubmitBtn = addCardFormElement.querySelector(".modal__submit-btn");
+const deleteCardSubmitBtn =
+  deleteCardForm.querySelector(".modal__submit-btn");
+const editProfileSubmitBtn =
+  editProfileForm.querySelector(".modal__submit-btn");
+
 
 document.querySelector(".header__logo").src = logo;
 profileAvatar.src = avatar;
