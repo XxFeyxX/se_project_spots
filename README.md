@@ -80,5 +80,7 @@ This webpage is deployed to Github Pages
 
 Check out ## Project Pitch Video
 
-Check out [these videos](https://drive.google.com/file/d/1jSQkd5cyvFJkMJjpsDribVfNzKlHIQBn/view?usp=drive_link), (https://www.loom.com/share/eb572641a4cd4bb5849e0d34da103f45) where I describe my
+Check out [this video](https://drive.google.com/file/d/1jSQkd5cyvFJkMJjpsDribVfNzKlHIQBn/view?usp=drive_link), where I describe my
 project and some challenges I faced while building it.
+
+just a line

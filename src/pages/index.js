@@ -184,6 +184,16 @@ function getCardElement(data) {
     openModal(deleteCardModal);
   });
 
+  editAvatarBtn.addEventListener("click", () => {
+  openModal(editAvatarModal);
+});
+
+editAvatarCloseBtn.addEventListener("click", () => {
+  closeModal(editAvatarModal);
+});
+
+editAvatarForm.addEventListener("submit", handleAvatarSubmit);
+
   deleteCardForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
@@ -223,6 +233,19 @@ api
     });
   })
   .catch(console.error);
+
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+
+  const avatarUrl = avatarInput.value;
+
+  api.updateAvatar(avatarUrl)
+    .then((userData) => {
+      profileAvatar.src = userData.avatar;
+      closeModal(editAvatarModal);
+    })
+    .catch(console.error);
+}
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();

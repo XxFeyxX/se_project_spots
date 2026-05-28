@@ -159,7 +159,7 @@
   border: none;
 }
 
-.modal__submit-btn-dlt {
+.modal__submit-btn_type_delete {
   max-width: 156px;
   width: 100%;
   padding: 18px 0;
