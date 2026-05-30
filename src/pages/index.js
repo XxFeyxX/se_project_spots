@@ -74,12 +74,54 @@ const editProfileSubmitBtn = editProfileForm.querySelector(
   settings.submitButtonSelector
 );
 
-document.querySelector(".header__logo").src = logo;
-profileAvatar.src = avatar;
-document.querySelector(".profile__pencil-icon").src = editIcon;
-document.querySelector(".profile__plus-icon").src = plusIcon;
+const editAvatarSubmitBtn = editAvatarForm.querySelector(".modal__submit-btn");
 
-const handleEsc = (evt) => {
+editAvatarSubmitBtn.dataset.originalText = editAvatarSubmitBtn.textContent;
+
+editAvatarBtn.addEventListener("click", () => {
+  avatarInput.value = "";
+
+  openModal(editAvatarModal);
+
+  resetValidation(editAvatarForm, [avatarInput], validationConfig);
+});
+
+const deleteCancelBtn = deleteCardForm.querySelector(".modal__cancel-btn");
+
+deleteCancelBtn.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+});
+
+const handleEditAvatarFormSubmit = (evt) => {
+  evt.preventDefault();
+
+  renderLoading(true, editAvatarSubmitBtn);
+
+  api
+    .editUserAvatar({
+      avatar: avatarInput.value,
+    })
+    .then((userData) => {
+      profileAvatar.src = userData.avatar;
+
+      closeModal(editAvatarModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      renderLoading(false, editAvatarSubmitBtn);
+    });
+};
+
+const editProfileSubmitBtn =
+  editProfileForm.querySelector(".modal__submit-btn");
+const addCardSubmitBtn = addCardFormElement.querySelector(".modal__submit-btn");
+const deleteCardSubmitBtn = deleteCardForm.querySelector(".modal__submit-btn");
+
+editProfileSubmitBtn.dataset.originalText = editProfileSubmitBtn.textContent;
+addCardSubmitBtn.dataset.originalText = addCardSubmitBtn.textContent;
+deleteCardSubmitBtn.dataset.originalText = deleteCardSubmitBtn.textContent;
+
+function handleEsc(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_is-opened");
 
@@ -87,7 +129,7 @@ const handleEsc = (evt) => {
       closeModal(openedModal);
     }
   }
-};
+}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -167,28 +209,7 @@ function getCardElement(data) {
     openModal(deleteCardModal);
   });
 
-  return card;
-}
-
-function handleDeleteCardSubmit(evt) {
-  evt.preventDefault();
-
-  setLoading(deleteCardSubmitBtn, true, "Deleting...");
-
-  api
-    .deleteCard(selectedCardId)
-    .then(() => {
-      selectedCardElement.remove();
-
-      closeModal(deleteCardModal);
-
-      selectedCardId = null;
-      selectedCardElement = null;
-    })
-    .catch(console.error)
-    .finally(() => {
-      setLoading(deleteCardSubmitBtn, false);
-    });
+  return cardElement;
 }
 
 function handleAvatarSubmit(evt) {
